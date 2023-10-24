@@ -15,6 +15,8 @@
 		FBD35AE02AE7EA0A004638AE /* PaybackTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35ADF2AE7EA0A004638AE /* PaybackTestUITests.swift */; };
 		FBD35AE22AE7EA0A004638AE /* PaybackTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AE12AE7EA0A004638AE /* PaybackTestUITestsLaunchTests.swift */; };
 		FBD35AF02AE7EC62004638AE /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FBD35AEF2AE7EC62004638AE /* ComposableArchitecture */; };
+		FBD35AF22AE7EC89004638AE /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD35AF12AE7EC89004638AE /* PBTransactions.json */; };
+		FBD35AF72AE7ECE3004638AE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AF62AE7ECE3004638AE /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		FBD35ADB2AE7EA0A004638AE /* PaybackTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaybackTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD35ADF2AE7EA0A004638AE /* PaybackTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaybackTestUITests.swift; sourceTree = "<group>"; };
 		FBD35AE12AE7EA0A004638AE /* PaybackTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaybackTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FBD35AF12AE7EC89004638AE /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
+		FBD35AF62AE7ECE3004638AE /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,10 @@
 		FBD35AC32AE7EA09004638AE /* PaybackTest */ = {
 			isa = PBXGroup;
 			children = (
+				FBD35AF52AE7ECD8004638AE /* Feature */,
+				FBD35AF42AE7ECD1004638AE /* View */,
+				FBD35AF32AE7ECC8004638AE /* Model */,
+				FBD35AF12AE7EC89004638AE /* PBTransactions.json */,
 				FBD35AC42AE7EA09004638AE /* PaybackTestApp.swift */,
 				FBD35AC62AE7EA09004638AE /* ContentView.swift */,
 				FBD35AC82AE7EA0A004638AE /* Assets.xcassets */,
@@ -127,6 +135,28 @@
 				FBD35AE12AE7EA0A004638AE /* PaybackTestUITestsLaunchTests.swift */,
 			);
 			path = PaybackTestUITests;
+			sourceTree = "<group>";
+		};
+		FBD35AF32AE7ECC8004638AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FBD35AF62AE7ECE3004638AE /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FBD35AF42AE7ECD1004638AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FBD35AF52AE7ECD8004638AE /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD35ACC2AE7EA0A004638AE /* Preview Assets.xcassets in Resources */,
+				FBD35AF22AE7EC89004638AE /* PBTransactions.json in Resources */,
 				FBD35AC92AE7EA0A004638AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +298,7 @@
 			files = (
 				FBD35AC72AE7EA09004638AE /* ContentView.swift in Sources */,
 				FBD35AC52AE7EA09004638AE /* PaybackTestApp.swift in Sources */,
+				FBD35AF72AE7ECE3004638AE /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
