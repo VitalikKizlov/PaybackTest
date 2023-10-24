@@ -46,7 +46,7 @@ struct TransactionRow: View {
             .padding(.bottom, 10)
             .padding(.top, 10)
             .frame(width: screenWidth - 10)
-            .background(Color.gray)
+            .background(Color.indigo)
 
         }
         .padding(.top, 4)

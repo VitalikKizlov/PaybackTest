@@ -26,6 +26,7 @@ struct TransactionsListFeature: Reducer {
         var transactions: IdentifiedArrayOf<Transaction> = []
         @PresentationState var alert: AlertState<Action.Alert>?
         var selectedTransaction: Transaction?
+        var sumOfTransactions = 0
         var path = StackState<TransactionsDetailFeature.State>()
     }
 
@@ -53,6 +54,10 @@ struct TransactionsListFeature: Reducer {
             case .transactionsResponse(.success(let items)):
                 state.loadingState = .loaded
                 state.transactions.append(contentsOf: items.sorted(by: { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate }))
+
+                let sum = state.transactions.reduce(0, { $0 + $1.transactionDetail.value.amount })
+                state.sumOfTransactions = sum
+
                 return .none
             case .transactionsResponse(.failure(let error)):
                 state.loadingState = .error

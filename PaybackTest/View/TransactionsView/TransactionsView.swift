@@ -24,14 +24,29 @@ struct TransactionsView: View {
                                 .font(.system(size: 18, weight: .medium))
                                 .multilineTextAlignment(.center)
                         } else {
-                            List {
-                                ForEach(viewStore.state.transactions) { transaction in
-                                    NavigationLink(state: TransactionsDetailFeature.State(transaction: transaction)) {
-                                        TransactionRow(transaction: transaction)
+                            ZStack {
+                                List {
+                                    ForEach(viewStore.state.transactions) { transaction in
+                                        NavigationLink(state: TransactionsDetailFeature.State(transaction: transaction)) {
+                                            TransactionRow(transaction: transaction)
+                                        }
                                     }
                                 }
+                                .listStyle(.plain)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 50, trailing: 0))
+
+                                VStack {
+                                    Spacer()
+
+                                    HStack {
+                                        Text ("Sum of filtered transactions is \(viewStore.state.sumOfTransactions)")
+                                            .foregroundColor(.white)
+                                    }
+
+                                    .frame(minWidth: 100, maxWidth: .infinity, maxHeight: 50)
+                                    .background(Color.gray.ignoresSafeArea())
+                                }
                             }
-                            .listStyle(.plain)
                         }
                     }
                 }
