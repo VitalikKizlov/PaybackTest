@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct PaybackTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TransactionsView(store: Store(initialState: TransactionsListFeature.State(), reducer: {
+                TransactionsListFeature()
+            }))
         }
     }
 }

@@ -17,6 +17,12 @@
 		FBD35AF02AE7EC62004638AE /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FBD35AEF2AE7EC62004638AE /* ComposableArchitecture */; };
 		FBD35AF22AE7EC89004638AE /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = FBD35AF12AE7EC89004638AE /* PBTransactions.json */; };
 		FBD35AF72AE7ECE3004638AE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AF62AE7ECE3004638AE /* Transaction.swift */; };
+		FBD35AF92AE7EE21004638AE /* TransactionsListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AF82AE7EE21004638AE /* TransactionsListFeature.swift */; };
+		FBD35AFB2AE7EE57004638AE /* TransactionsDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AFA2AE7EE57004638AE /* TransactionsDetailFeature.swift */; };
+		FBD35AFE2AE7F003004638AE /* TransactionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35AFD2AE7F003004638AE /* TransactionsService.swift */; };
+		FBD35B012AE7F5CD004638AE /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B002AE7F5CD004638AE /* TransactionsView.swift */; };
+		FBD35B032AE7F62B004638AE /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B022AE7F62B004638AE /* TransactionRow.swift */; };
+		FBD35B062AE7FC29004638AE /* TransactionsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B052AE7FC29004638AE /* TransactionsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		FBD35AE12AE7EA0A004638AE /* PaybackTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaybackTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FBD35AF12AE7EC89004638AE /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
 		FBD35AF62AE7ECE3004638AE /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		FBD35AF82AE7EE21004638AE /* TransactionsListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListFeature.swift; sourceTree = "<group>"; };
+		FBD35AFA2AE7EE57004638AE /* TransactionsDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDetailFeature.swift; sourceTree = "<group>"; };
+		FBD35AFD2AE7F003004638AE /* TransactionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsService.swift; sourceTree = "<group>"; };
+		FBD35B002AE7F5CD004638AE /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		FBD35B022AE7F62B004638AE /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		FBD35B052AE7FC29004638AE /* TransactionsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +112,10 @@
 		FBD35AC32AE7EA09004638AE /* PaybackTest */ = {
 			isa = PBXGroup;
 			children = (
+				FBD35AFC2AE7EFEF004638AE /* Service */,
 				FBD35AF52AE7ECD8004638AE /* Feature */,
 				FBD35AF42AE7ECD1004638AE /* View */,
-				FBD35AF32AE7ECC8004638AE /* Model */,
+				FBD35AF32AE7ECC8004638AE /* Domain */,
 				FBD35AF12AE7EC89004638AE /* PBTransactions.json */,
 				FBD35AC42AE7EA09004638AE /* PaybackTestApp.swift */,
 				FBD35AC62AE7EA09004638AE /* ContentView.swift */,
@@ -137,17 +150,19 @@
 			path = PaybackTestUITests;
 			sourceTree = "<group>";
 		};
-		FBD35AF32AE7ECC8004638AE /* Model */ = {
+		FBD35AF32AE7ECC8004638AE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				FBD35AF62AE7ECE3004638AE /* Transaction.swift */,
 			);
-			path = Model;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		FBD35AF42AE7ECD1004638AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBD35B042AE7FC1C004638AE /* TransactionsDetailView */,
+				FBD35AFF2AE7F5A8004638AE /* TransactionsView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,8 +170,35 @@
 		FBD35AF52AE7ECD8004638AE /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				FBD35AF82AE7EE21004638AE /* TransactionsListFeature.swift */,
+				FBD35AFA2AE7EE57004638AE /* TransactionsDetailFeature.swift */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		FBD35AFC2AE7EFEF004638AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FBD35AFD2AE7F003004638AE /* TransactionsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FBD35AFF2AE7F5A8004638AE /* TransactionsView */ = {
+			isa = PBXGroup;
+			children = (
+				FBD35B002AE7F5CD004638AE /* TransactionsView.swift */,
+				FBD35B022AE7F62B004638AE /* TransactionRow.swift */,
+			);
+			path = TransactionsView;
+			sourceTree = "<group>";
+		};
+		FBD35B042AE7FC1C004638AE /* TransactionsDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				FBD35B052AE7FC29004638AE /* TransactionsDetailView.swift */,
+			);
+			path = TransactionsDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +339,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBD35AC72AE7EA09004638AE /* ContentView.swift in Sources */,
+				FBD35AF92AE7EE21004638AE /* TransactionsListFeature.swift in Sources */,
 				FBD35AC52AE7EA09004638AE /* PaybackTestApp.swift in Sources */,
 				FBD35AF72AE7ECE3004638AE /* Transaction.swift in Sources */,
+				FBD35B062AE7FC29004638AE /* TransactionsDetailView.swift in Sources */,
+				FBD35AFE2AE7F003004638AE /* TransactionsService.swift in Sources */,
+				FBD35B032AE7F62B004638AE /* TransactionRow.swift in Sources */,
+				FBD35AFB2AE7EE57004638AE /* TransactionsDetailFeature.swift in Sources */,
+				FBD35B012AE7F5CD004638AE /* TransactionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

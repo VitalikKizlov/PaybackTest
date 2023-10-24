@@ -11,24 +11,30 @@ struct TransactionsResponse: Codable {
     let items: [Transaction]
 }
 
-struct Transaction: Codable {
+struct Transaction: Codable, Identifiable, Hashable {
+    let id = UUID()
+
     let partnerDisplayName: String
     let alias: Alias
     let category: Int
     let transactionDetail: TransactionDetail
+
+    enum CodingKeys: String, CodingKey {
+        case partnerDisplayName, alias, category, transactionDetail
+    }
 }
 
-struct Alias: Codable {
+struct Alias: Codable, Hashable {
     let reference: String
 }
 
-struct TransactionDetail: Codable {
+struct TransactionDetail: Codable, Hashable {
     let description: String?
     let bookingDate: Date
     let value: TransactionDetailValue
 }
 
-struct TransactionDetailValue: Codable {
+struct TransactionDetailValue: Codable, Hashable {
     let amount: Int
     let currency: Currency
 }
