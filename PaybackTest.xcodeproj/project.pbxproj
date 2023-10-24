@@ -24,6 +24,7 @@
 		FBD35B032AE7F62B004638AE /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B022AE7F62B004638AE /* TransactionRow.swift */; };
 		FBD35B062AE7FC29004638AE /* TransactionsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B052AE7FC29004638AE /* TransactionsDetailView.swift */; };
 		FBD35B082AE80492004638AE /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B072AE80492004638AE /* ConnectionService.swift */; };
+		FBD35B0A2AE80652004638AE /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD35B092AE80652004638AE /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FBD35B022AE7F62B004638AE /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		FBD35B052AE7FC29004638AE /* TransactionsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsDetailView.swift; sourceTree = "<group>"; };
 		FBD35B072AE80492004638AE /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
+		FBD35B092AE80652004638AE /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +165,8 @@
 		FBD35AF42AE7ECD1004638AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FBD35B042AE7FC1C004638AE /* TransactionsDetailView */,
 				FBD35AFF2AE7F5A8004638AE /* TransactionsView */,
+				FBD35B042AE7FC1C004638AE /* TransactionsDetailView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +185,7 @@
 			children = (
 				FBD35AFD2AE7F003004638AE /* TransactionsService.swift */,
 				FBD35B072AE80492004638AE /* ConnectionService.swift */,
+				FBD35B092AE80652004638AE /* JSONParser.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				FBD35AC72AE7EA09004638AE /* ContentView.swift in Sources */,
 				FBD35B082AE80492004638AE /* ConnectionService.swift in Sources */,
 				FBD35AF92AE7EE21004638AE /* TransactionsListFeature.swift in Sources */,
+				FBD35B0A2AE80652004638AE /* JSONParser.swift in Sources */,
 				FBD35AC52AE7EA09004638AE /* PaybackTestApp.swift in Sources */,
 				FBD35AF72AE7ECE3004638AE /* Transaction.swift in Sources */,
 				FBD35B062AE7FC29004638AE /* TransactionsDetailView.swift in Sources */,

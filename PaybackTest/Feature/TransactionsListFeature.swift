@@ -34,6 +34,8 @@ struct TransactionsListFeature: Reducer {
         case transactionsResponse(TaskResult<[Transaction]>)
         case path(StackAction<TransactionsDetailFeature.State, TransactionsDetailFeature.Action>)
         case alert(PresentationAction<Alert>)
+        case sortByCategory
+        case reorderToDefault
         enum Alert: Equatable {}
     }
 
@@ -76,6 +78,18 @@ struct TransactionsListFeature: Reducer {
             case .path:
                 return .none
             case .alert(.dismiss):
+                return .none
+            case .sortByCategory:
+                let sorted = state.transactions.sorted(by: { $0.category > $1.category })
+
+                state.transactions.removeAll()
+                state.transactions.append(contentsOf: sorted)
+                return .none
+            case .reorderToDefault:
+                let sorted = state.transactions.sorted(by: { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate })
+
+                state.transactions.removeAll()
+                state.transactions.append(contentsOf: sorted)
                 return .none
             }
         }

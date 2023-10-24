@@ -36,6 +36,20 @@ struct TransactionsView: View {
                     }
                 }
                 .navigationTitle("Transactions")
+                .toolbar(content: {
+                    ToolbarItem {
+                        Menu {
+                            Button("Sort by category") {
+                                viewStore.send(.sortByCategory)
+                            }
+                            Button("Reorder to default") {
+                                viewStore.send(.reorderToDefault)
+                            }
+                        } label: {
+                            Label("Menu", systemImage: "ellipsis.circle")
+                        }
+                    }
+                })
                 .alert(store: self.store.scope(state: \.$alert, action: { .alert($0) }))
                 .onAppear {
                     viewStore.send(.onAppear)
