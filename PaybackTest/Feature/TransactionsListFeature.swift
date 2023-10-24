@@ -41,6 +41,7 @@ struct TransactionsListFeature: Reducer {
         Reduce { state, action in
             switch action {
             case .onAppear:
+                if state.loadingState == .loaded { return .none }
                 state.loadingState = .loading
                 return .run { send in
                     await send(.transactionsResponse(
@@ -53,12 +54,23 @@ struct TransactionsListFeature: Reducer {
                 return .none
             case .transactionsResponse(.failure(let error)):
                 state.loadingState = .error
-                state.alert = AlertState {
-                    TextState("Error! Unable to retrieve your local bus stop data.")
-                } actions: {
 
-                } message: {
-                    TextState(error.localizedDescription)
+                if let err = error as? TransactionsService.NetworkError {
+                    state.alert = AlertState {
+                        TextState("You are not connected to the internet")
+                    } actions: {
+
+                    } message: {
+                        TextState(err.localizedDescription)
+                    }
+                } else {
+                    state.alert = AlertState {
+                        TextState("Error! Unable to retrieve data.")
+                    } actions: {
+
+                    } message: {
+                        TextState(error.localizedDescription)
+                    }
                 }
                 return .none
             case .path:
@@ -72,5 +84,4 @@ struct TransactionsListFeature: Reducer {
             TransactionsDetailFeature()
         }
     }
-
 }
