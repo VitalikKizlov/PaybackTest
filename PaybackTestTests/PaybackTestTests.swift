@@ -36,9 +36,7 @@ final class PaybackTestTests: XCTestCase {
     }
     
     func testTransactionsListFeature() async {
-        let uuid = UUID(uuidString: "BE3B5CC6-1C8A-45D1-9729-8FB796F52C28")!
-        let date = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        let items = [Transaction(id: uuid, partnerDisplayName: "", alias: Alias(reference: ""), category: 1, transactionDetail: TransactionDetail(description: "", bookingDate: date, value: TransactionDetailValue(amount: 1, currency: .pbp)))]
+        let items = [Transaction.test]
 
         let store = TestStore(initialState: TransactionsListFeature.State()) {
             TransactionsListFeature()

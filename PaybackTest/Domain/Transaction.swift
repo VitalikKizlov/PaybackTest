@@ -59,3 +59,9 @@ struct TransactionDetailValue: Codable, Hashable {
 enum Currency: String, Codable {
     case pbp = "PBP"
 }
+
+extension Transaction {
+    static let uuid = UUID(uuidString: "BE3B5CC6-1C8A-45D1-9729-8FB796F52C28")!
+    static let date = Date(timeIntervalSinceReferenceDate: -123456789.0)
+    static let test = Self(id: uuid, partnerDisplayName: "", alias: Alias(reference: ""), category: 1, transactionDetail: TransactionDetail(description: "", bookingDate: date, value: TransactionDetailValue(amount: 1, currency: .pbp)))
+}
