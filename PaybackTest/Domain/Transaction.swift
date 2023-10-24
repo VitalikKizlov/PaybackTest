@@ -12,12 +12,29 @@ struct TransactionsResponse: Codable {
 }
 
 struct Transaction: Codable, Identifiable, Hashable {
-    let id = UUID()
-
+    let id: UUID
     let partnerDisplayName: String
     let alias: Alias
     let category: Int
     let transactionDetail: TransactionDetail
+
+    init(id: UUID, partnerDisplayName: String, alias: Alias, category: Int, transactionDetail: TransactionDetail) {
+        self.id = id
+        self.partnerDisplayName = partnerDisplayName
+        self.alias = alias
+        self.category = category
+        self.transactionDetail = transactionDetail
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.partnerDisplayName = try container.decode(String.self, forKey: .partnerDisplayName)
+        self.alias = try container.decode(Alias.self, forKey: .alias)
+        self.category = try container.decode(Int.self, forKey: .category)
+        self.transactionDetail = try container.decode(TransactionDetail.self, forKey: .transactionDetail)
+        
+        self.id = UUID()
+    }
 
     enum CodingKeys: String, CodingKey {
         case partnerDisplayName, alias, category, transactionDetail

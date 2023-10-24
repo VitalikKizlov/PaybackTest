@@ -9,11 +9,7 @@ import Foundation
 import Network
 import ComposableArchitecture
 
-protocol TransactionsServiceProtocol {
-    func getTransactions() async throws -> [Transaction]
-}
-
-struct TransactionsService: TransactionsServiceProtocol {
+struct TransactionsService {
     enum NetworkStatus {
         case available
         case unavailable
@@ -23,7 +19,11 @@ struct TransactionsService: TransactionsServiceProtocol {
         case networkUnavailable
     }
 
-    func getTransactions() async throws -> [Transaction] {
+    var getTransactions: () async throws -> [Transaction]
+}
+
+extension TransactionsService: DependencyKey {
+    static let liveValue = Self {
         async let status = ConnectionService.isConnected()
 
         if await !status {
@@ -34,10 +34,6 @@ struct TransactionsService: TransactionsServiceProtocol {
         try await Task.sleep(nanoseconds: 1_000_000_000)
         return try await response.items
     }
-}
-
-extension TransactionsService: DependencyKey {
-    static let liveValue = TransactionsService()
 }
 
 extension DependencyValues {
