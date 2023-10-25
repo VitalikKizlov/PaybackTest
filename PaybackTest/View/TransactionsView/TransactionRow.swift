@@ -16,7 +16,7 @@ struct TransactionRow: View {
         ZStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(formattedDate(transaction.transactionDetail.bookingDate))
+                    Text(transaction.transactionDetail.formattedDate)
                         .bold()
                         .foregroundColor(.white)
 
@@ -51,12 +51,5 @@ struct TransactionRow: View {
         }
         .padding(.top, 4)
         .background(Color.white)
-    }
-
-    private func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM, yyyy"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        return formatter.string(from: date)
     }
 }

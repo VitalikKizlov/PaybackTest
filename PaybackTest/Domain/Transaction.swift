@@ -49,6 +49,17 @@ struct TransactionDetail: Codable, Hashable {
     let description: String?
     let bookingDate: Date
     let value: TransactionDetailValue
+
+    var formattedDate: String {
+        formattedDate(bookingDate)
+    }
+
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMM, yyyy"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter.string(from: date)
+    }
 }
 
 struct TransactionDetailValue: Codable, Hashable {

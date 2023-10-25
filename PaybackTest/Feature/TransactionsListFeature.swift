@@ -85,16 +85,10 @@ struct TransactionsListFeature: Reducer {
             case .alert(.dismiss):
                 return .none
             case .sortByCategory:
-                let sorted = state.transactions.sorted(by: { $0.category > $1.category })
-
-                state.transactions.removeAll()
-                state.transactions.append(contentsOf: sorted)
+                state.transactions.sort(by: { $0.category > $1.category })
                 return .none
             case .reorderToDefault:
-                let sorted = state.transactions.sorted(by: { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate })
-
-                state.transactions.removeAll()
-                state.transactions.append(contentsOf: sorted)
+                state.transactions.sort(by: { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate })
                 return .none
             }
         }
